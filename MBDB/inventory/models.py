@@ -43,9 +43,9 @@ class Device(models.Model):
     asset_tag = models.IntegerField()
     serial_number = models.CharField(max_length = 20)
     model = models.ForeignKey('Model', null=True)
-    student = models.ForeignKey('Student', null=True)
-    group = models.ForeignKey('Group', null=True)
-    status = models.ForeignKey('Status', null=True)
+    student = models.ForeignKey('Student', null=True, blank=True)
+    group = models.ForeignKey('Group', null=True, blank=True)
+    status = models.ForeignKey('Status', null=True, blank=True)
 
     def __str__(self):
         return str(self.asset_tag)

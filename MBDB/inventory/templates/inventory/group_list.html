@@ -1,0 +1,28 @@
+{% extends "inventory/base.html" %}
+
+{% block content %}
+  {% for group in group_list %}
+
+  <div class="col-md-2">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        {{ group.name }}
+      </div>
+      <div class="panel-body">
+        <div id="{{ group.name }}_chart" style="height:175px;"></div>
+        <script type="text/javascript">
+        new Morris.Donut({
+          element: '{{ group.name }}_chart',
+          data: [
+            { label: 'Checked Out', value: 240 },
+            { label: 'Checked In', value: 145 }
+          ],
+          resize: true
+        });
+        </script>
+        </div>
+      </div>
+    </div>
+
+  {% endfor %}
+{% endblock %}
